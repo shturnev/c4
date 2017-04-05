@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+#belt{
+  width: 960px;
+  margin: 0 auto;
+  background-color: silver;
+
+  header{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-self: flex-start;
+    height: 50px;
+    font-size: 14px;
+    text-transform: uppercase;
+  }
+  .content{
+    margin: auto;
+    .add{
+      margin: auto;
+    }
+    .add{
+      margin: auto;
+    }
+  }
+}

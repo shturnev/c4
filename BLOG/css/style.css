@@ -1,0 +1,20 @@
+#belt {
+  width: 960px;
+  margin: 0 auto;
+  background-color: silver; }
+  #belt header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-self: flex-start;
+    height: 50px;
+    font-size: 14px;
+    text-transform: uppercase; }
+  #belt .content {
+    margin: auto; }
+    #belt .content .add {
+      margin: auto; }
+    #belt .content .add {
+      margin: auto; }
+
+/*# sourceMappingURL=style.css.map */
