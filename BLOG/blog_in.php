@@ -2,8 +2,8 @@
 /**
  * Created by PhpStorm.
  * User: Сергій
- * Date: 04.04.2017
- * Time: 20:35
+ * Date: 05.04.2017
+ * Time: 18:25
  */
 ?>
 <!DOCTYPE html>
@@ -23,19 +23,9 @@
     ?>
 
     <section class="content">
-        <a href="" class="add">добавить</a>
-
+        <a href="#" class="add">добавить</a>
         <div class="article">
-            <a href="blog_in.php" class="title"><h1>Заглавие</h1></a>
-            <div class="text">
-                Lorem ipsum dolor sit amet.
-            </div>
-            <a href="#" class="edit">редактировать</a>
-            <a href="#" class="delete">удалить</a>
-        </div>
-
-        <div class="article">
-            <a href="" class="title"><h1>Заглавие</h1></a>
+            <h1>Заглавие</h1>
             <div class="text">
                 Lorem ipsum dolor sit amet.
             </div>
