@@ -15,7 +15,54 @@ body {
     max-width: 960px;
     flex-flow: column wrap;
     justify-content: space-around;
-    align-items: center; }
+    align-items: center;
+        /*.subscr {
+          display: flex;
+          height: 300px;
+          width: 60%;
+          margin: auto;
+          padding: 10px;
+          flex-flow: column wrap;
+          h2 {
+            display: flex;
+            margin: auto;
+            padding: 10px;
+          }
+          p {
+            display: flex;
+            margin: auto;
+            padding: 10px;
+          }
+          .redact {
+            display: flex;
+            width: 30%;
+            margin: 10px;
+            padding: 10px;
+            flex-flow: row wrap;
+            align-self: flex-end;
+            .redact_button {
+              display: flex;
+
+              list-style: none;
+              a{
+                margin: 20px;
+                padding: 10px;
+                color: #7233ed;
+                text-decoration: none;
+                text-transform: uppercase;
+
+                font-weight: 600;
+                &:hover.button {
+                  color: #272727;
+
+                }
+
+              }
+
+            }
+          }
+
+        }*/ }
     body .main nav {
       display: flex;
       margin: 0;
@@ -35,7 +82,7 @@ body {
             text-decoration: none;
             text-transform: uppercase;
             font-weight: 600; }
-            body .main nav .nav li a:hover.nav {
+            body .main nav .nav li a:hover {
               color: #faa033; }
     body .main .button {
       display: flex;
@@ -48,41 +95,13 @@ body {
         text-decoration: none;
         text-transform: uppercase;
         font-weight: 600; }
-        body .main .button a:hover.button {
+        body .main .button a:hover {
           color: #272727; }
-    body .main .subscr {
+    body .main ul {
       display: flex;
-      height: 300px;
       width: 60%;
       margin: auto;
       padding: 10px;
       flex-flow: column wrap; }
-      body .main .subscr h2 {
-        display: flex;
-        margin: auto;
-        padding: 10px; }
-      body .main .subscr p {
-        display: flex;
-        margin: auto;
-        padding: 10px; }
-      body .main .subscr .redact {
-        display: flex;
-        width: 30%;
-        margin: 10px;
-        padding: 10px;
-        flex-flow: row wrap;
-        align-self: flex-end; }
-        body .main .subscr .redact .redact_button {
-          display: flex;
-          list-style: none; }
-          body .main .subscr .redact .redact_button a {
-            margin: 20px;
-            padding: 10px;
-            color: #7233ed;
-            text-decoration: none;
-            text-transform: uppercase;
-            font-weight: 600; }
-            body .main .subscr .redact .redact_button a:hover.button {
-              color: #272727; }
 
-/*# sourceMappingURL=style_blog.css.map */
+/*# sourceMappingURL=style_start.css.map */

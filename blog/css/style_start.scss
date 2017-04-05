@@ -42,7 +42,7 @@ body{
                 text-decoration: none;
                 text-transform: uppercase;
                 font-weight: 600;
-                &:hover.nav{
+                &:hover{
                   color: #faa033;
                 }
               }
@@ -62,12 +62,20 @@ body{
             text-decoration: none;
             text-transform: uppercase;
             font-weight: 600;
-            &:hover.button {
+            &:hover{
               color: #272727;
             }
           }
         }
-        .subscr {
+
+        ul{
+          display: flex;
+          width: 60%;
+          margin: auto;
+          padding: 10px;
+          flex-flow: column wrap;
+        }
+        /*.subscr {
           display: flex;
           height: 300px;
           width: 60%;
@@ -113,6 +121,6 @@ body{
             }
           }
 
-        }
+        }*/
       }
 }
