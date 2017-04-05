@@ -1,7 +1,12 @@
+
+#bd{
+  background:silver;
+}
 #belt {
   width: 960px;
   margin: 0 auto;
-  background-color: silver; }
+background:white;
+  }
   #belt header {
     display: flex;
     flex-wrap: wrap;
@@ -18,3 +23,11 @@
       margin: auto; }
 
 /*# sourceMappingURL=style.css.map */
+a{
+  text-decoration: none;
+
+}
+.title{
+  color:red;
+}
+
