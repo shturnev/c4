@@ -8,7 +8,7 @@
     <title></title>
     <link rel="shortcut icon" href=""/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" media="all" href=""/>
+    <link rel="stylesheet" type="text/css" media="all" href="css/style.css"/>
 
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -17,11 +17,11 @@
 </head>
 
 <body>
-
+<main>
 <br><br>
 <? require "blocks/header.php" ?>
 <br><br>
-<main>
+
     <form action="" method="post" enctype="multipart/form-data" name="myForm" target="_self">
         <input type="text" name="title" value="" placeholder="email"/><br><br>
         <input type="text" name="title" value="" placeholder="pass"/><br><br>
