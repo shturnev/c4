@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+$variables: (
+  w: width,
+  h: height,
+  mt: margin-top,
+  mb: margin-bottom,
+  ml: margin-left,
+  mr: margin-right,
+);
+
+$i: 5; $max: 100; $s: 5;
+@while $i <= $max {
+
+  @each $key, $val in $variables {
+    .#{$key}#{$i}{ #{$val}: $i + px; }
+  }
+
+  $i: $i + $s;
+}
+
+
