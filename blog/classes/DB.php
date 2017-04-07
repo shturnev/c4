@@ -8,7 +8,7 @@
  */
 class DB
 {
-    private $logins = ['login' => 'root', 'pass' => '', 'host' => '127.0.0.1', 'basename' => 'b4'];
+    private $logins = ['login' => 'root', 'pass' => '', 'host' => '127.0.0.1', 'basename' => 'blog_c4'];
     public $resConnect;
 
     public function __construct() //MAGIC METHODS
@@ -57,7 +57,7 @@ class DB
         }
 
 
-        $result["response"] = $this->resConnect->insert_id;
+        $result =  $this->resConnect->insert_id;
         $this->disconnect();
 
         return  $result;
@@ -88,9 +88,16 @@ class DB
 
         $this->disconnect();
 
-        return  true;
+        return true;
     }
 
+
+    /**
+     * Сделать выборку 1 записи
+     * @param $sql
+     * @return null
+     * @throws Exception
+     */
     public function get_row($sql)
     {
         $this->connect();
