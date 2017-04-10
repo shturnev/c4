@@ -1,27 +1,44 @@
 @charset "UTF-8";
+html, body {
+  margin: 0;
+  padding: 0;
+  height:100%;
+  min-height:100%;
+  width:100%;
+  max-width:100%;
 
+
+
+
+}
 
 #belt{
-  width: 960px;
+  background:white;
+}
+#bd{
   margin: 0 auto;
+  width:960px;
+  background:silver;
 
+}
+.nav{
+  font-size:20px;
+  color:#7000ff;
+}
+#ad{
+  margin-top:0px;
+}
+#art{
+  color:red;
+}
+#log{
 
-  header{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-self: flex-start;
-    height: 50px;
-    font-size: 14px;
-    text-transform: uppercase;
-  }
-  .content{
-    margin: auto;
-    .add{
-      margin: auto;
-    }
-    .add{
-      margin: auto;
-    }
-  }
+  margin-top: 50px;
+}
+#bd_log{
+  margin: 0 auto;
+  max-width: 100%;
+}
+#blog_in_text{
+  font-size:20px;
 }
