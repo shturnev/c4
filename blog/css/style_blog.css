@@ -1,88 +1,30 @@
-body {
-  display: flex;
-  align-content: center;
-  margin: auto;
+html, body {
+  margin: 0;
   padding: 0;
-  height: 100vh;
+  height: 100%;
+  min-height: 100%;
+  background: silver; }
+
+.main {
   width: 960px;
-  background: silver;
-  font: 1em/1.3em Arial, Tahoma, "Trebuchet MS", sans-serif;
-  color: #272727; }
-  body .main {
+  margin: 0 auto;
+  position: relative; }
+  .main .nav {
     display: flex;
-    margin: 20px auto;
+    margin: 0;
     padding: 0;
-    max-width: 960px;
-    flex-flow: column wrap;
-    justify-content: space-around;
-    align-items: center; }
-    body .main nav {
-      display: flex;
-      margin: 0;
+    align-self: flex-end; }
+    .main .nav .nav {
       padding: 0;
-      flex-flow: row wrap;
-      align-self: flex-end; }
-      body .main nav .nav {
-        padding: 0;
+      margin: 0; }
+      .main .nav .nav li {
+        padding: 20px;
         margin: 0;
-        display: flex; }
-        body .main nav .nav li {
-          padding: 20px;
-          margin: 0;
-          list-style: none; }
-          body .main nav .nav li a {
-            color: #7233ed;
-            text-decoration: none;
-            text-transform: uppercase;
-            font-weight: 600; }
-            body .main nav .nav li a:hover.nav {
-              color: #faa033; }
-    body .main .button {
-      display: flex;
-      margin: 20px;
-      padding: 5px;
-      background: #faa033;
-      border-radius: 10px; }
-      body .main .button a {
-        color: #7233ed;
-        text-decoration: none;
-        text-transform: uppercase;
-        font-weight: 600; }
-        body .main .button a:hover.button {
-          color: #272727; }
-    body .main .subscr {
-      display: flex;
-      height: 300px;
-      width: 60%;
-      margin: auto;
-      padding: 10px;
-      flex-flow: column wrap; }
-      body .main .subscr h2 {
-        display: flex;
-        margin: auto;
-        padding: 10px; }
-      body .main .subscr p {
-        display: flex;
-        margin: auto;
-        padding: 10px; }
-      body .main .subscr .redact {
-        display: flex;
-        width: 30%;
-        margin: 10px;
-        padding: 10px;
-        flex-flow: row wrap;
-        align-self: flex-end; }
-        body .main .subscr .redact .redact_button {
-          display: flex;
-          list-style: none; }
-          body .main .subscr .redact .redact_button a {
-            margin: 20px;
-            padding: 10px;
-            color: #7233ed;
-            text-decoration: none;
-            text-transform: uppercase;
-            font-weight: 600; }
-            body .main .subscr .redact .redact_button a:hover.button {
-              color: #272727; }
+        list-style: none; }
+        .main .nav .nav li a {
+          color: #c1edca;
+          text-decoration: none;
+          text-transform: uppercase;
+          font-weight: 500; }
 
 /*# sourceMappingURL=style_blog.css.map */

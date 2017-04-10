@@ -1,7 +1,7 @@
 <nav>
     <ul class="nav">
         <li>
-            <a href="#">Выход</a>
+            <a href="index.php">Выход</a>
         </li>
 
         <li>

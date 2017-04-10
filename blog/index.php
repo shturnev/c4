@@ -7,11 +7,13 @@
 </head>
 <body>
 <div class="main">
+    <? require "blocks/header.php"?>
+
 
     <div class="button">
         <a class="button" href="">Добавить</a>
     </div>
-    <? require "blocks/header.php"?>
+
 
     <ul>
         <? for($i=0; $i<10;$i++){?>
