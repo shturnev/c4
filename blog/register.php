@@ -1,5 +1,7 @@
 <?php
+if ($_POST["method_name"] == 'register') {
 
+}
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -25,7 +27,7 @@
     <form action="" method="post" enctype="multipart/form-data" name="myForm" target="_self">
         <input type="text" name="title" value="" placeholder="email"/><br><br>
         <input type="text" name="title" value="" placeholder="pass"/><br><br>
-
+        <input type="hidden" name="method_name" value="register">
         <input name="submit" type="submit" value="отправить"/>
     </form>
 </main>
