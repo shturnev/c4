@@ -1,72 +1,29 @@
 html, body {
-  display: flex;
-  align-content: center;
-  justify-content: space-between;
-  margin: auto;
   padding: 0;
-  height: 100vh;
+  margin: 0;
+  height: 100%;
+  min-height: 100%;
+  background: silver; }
+
+.main {
   width: 960px;
-  background: silver;
-  font: 1em/1.3em Verdana, Geneva, sans-serif;
-  color: #272727; }
-  html .main, body .main {
-    display: flex;
-    margin: 20px auto;
-    padding: 0;
-    max-width: 960px;
-    flex-flow: column wrap; }
-    html .main .nav, body .main .nav {
+  margin: 0 auto; }
+  .main nav {
+    text-align: right; }
+    .main nav a {
       display: inline-block;
-      text-align: right; }
-      html .main .nav li, body .main .nav li {
-        padding: 20px;
-        margin: 0;
-        list-style: none;
-        text-decoration: none;
-        text-transform: uppercase; }
-        html .main .nav li a, body .main .nav li a {
-          color: #7233ed;
-          font-weight: 600; }
-          html .main .nav li a:hover, body .main .nav li a:hover {
-            color: #faa033; }
-    html .main .button, body .main .button {
-      display: block;
-      text-align: center;
-      margin: 20px;
-      padding: 5px;
-      background: #faa033;
-      border-radius: 10px; }
-      html .main .button a, body .main .button a {
-        color: #7233ed;
-        text-decoration: none;
-        text-transform: uppercase;
-        font-weight: 600; }
-        html .main .button a:hover, body .main .button a:hover {
-          color: #272727; }
-    html .main ul, body .main ul {
-      display: flex;
-      width: 60%;
-      margin: auto;
-      padding: 10px;
-      flex-flow: column wrap;
-      justify-content: center; }
-      html .main ul li, body .main ul li {
-        display: flex;
-        flex-flow: column wrap; }
-        html .main ul li a, body .main ul li a {
-          display: flex;
-          color: #7233ed;
-          font-size: 26px;
-          font-weight: 600; }
-          html .main ul li a:hover, body .main ul li a:hover {
-            color: #272727; }
-        html .main ul li .descr, body .main ul li .descr {
-          text-align: center;
-          margin: 20px;
-          display: flex;
-          width: 60%;
-          font-size: 16px; }
-        html .main ul li .adm_btns, body .main ul li .adm_btns {
-          text-align: center; }
+      margin-left: 10px; }
+  .main > .button {
+    text-align: center;
+    margin: 50px 0; }
+  .main .blog-list {
+    list-style: none;
+    margin: 0;
+    padding: 0; }
+    .main .blog-list li {
+      margin-bottom: 25px; }
+      .main .blog-list li .for-title {
+        font-size: 18px;
+        color: #845300; }
 
 /*# sourceMappingURL=style_start.css.map */
