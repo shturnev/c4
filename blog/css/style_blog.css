@@ -9,22 +9,21 @@ html, body {
   width: 960px;
   margin: 0 auto;
   position: relative; }
-  .main .nav {
-    display: flex;
+  .main nav {
+    text-align: right; }
+    .main nav a {
+      display: inline-block;
+      margin-left: 10px; }
+  .main > .button {
+    text-align: center;
+    margin: 50px 0; }
+  .main .blog-list {
+    list-style: none;
     margin: 0;
-    padding: 0;
-    align-self: flex-end; }
-    .main .nav .nav {
-      padding: 0;
-      margin: 0; }
-      .main .nav .nav li {
-        padding: 20px;
-        margin: 0;
-        list-style: none; }
-        .main .nav .nav li a {
-          color: #c1edca;
-          text-decoration: none;
-          text-transform: uppercase;
-          font-weight: 500; }
+    padding: 0; }
+    .main .blog-list li {
+      margin-bottom: 25px; }
+      .main .blog-list li .for-title {
+        font-size: 36px; }
 
 /*# sourceMappingURL=style_blog.css.map */
