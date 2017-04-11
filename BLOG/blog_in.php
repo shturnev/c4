@@ -19,7 +19,7 @@
 <body>
 <div id="belt">
     <?php
-    require "boks/heder.php"
+    require "bloks/heder.php"
     ?>
 
     <section class="content">
