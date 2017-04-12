@@ -1,7 +1,31 @@
 <?php
-if ($_POST["method_name"] == 'register') {
+require_once 'App/DB.php';
+require_once 'App/Enter.php';
 
+$E = new Enter();
+
+//регистрация
+if ($_POST["method_name"] == 'register')
+{
+    try{
+        $E->register($_POST);
+    }
+    catch (Exception $e){
+        $error_text = $e->getMessage();
+    }
 }
+
+    //верификация
+    if ($_GET['verify'] and $_GET['token'])
+    {
+        try{
+            $E->verify_email($_GET['token']);
+            $success_text = 'спасибо ваш tmail верифицирован';
+        }
+        catch (Exception $e){
+            $error_text = $e->getMessage();
+        }
+    }
 ?>
 <!DOCTYPE html>
 <html lang="ru">

@@ -48,5 +48,35 @@ class Enter
 
             $resInsert = $this->DB->insert('users', $arr);
 
+        //отправляем на почту
+        $text = "http://c4/blog/register.php?verify=1&token=".$arr['token'];
+        if (!mail($email, 'подтвердить регистрацию', $text));
+        {
+            throw new \Exception('Ошибка при отправки письма');
+        }
+            //отклик
+        return $resInsert;
     }
+
+
+    
+    public function verify_email($token)
+    {
+        $token = addslashes($token);
+        
+        //выборка такого пользователя
+        $sql = "SELECT * FROM users WHERE token = '".$token."' AND verify = 0";
+        $resItem = $this->DB->get_row($sql);
+        
+        if (!$resItem){
+            throw new \Exception('сори,такой записи нет');
+        }
+         
+        //верефицируем
+        $this->DB->update('users', ['verify' => 1, 'date' => time()], 'ID ='.$resItem['ID']);
+        
+        //response
+        return true;
+    }
+    
 }
