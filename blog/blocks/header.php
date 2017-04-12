@@ -1,3 +1,16 @@
+<?
+    if(!$E)
+    {
+        require_once "classes/DB.php";
+        require_once "classes/Enter.php";
+        $E = new Enter();
+    }
+
+    $auth = $E->validate_coockie();
+
+?>
+
+
 <header>
 
     <div class="logo">
@@ -7,7 +20,10 @@
     </div>
 
 
-    <a href="../">Выход</a>
-    <a href="login.php">Вход</a>
-    <a href="register.php">Регистриция</a>
+    <? if($auth){ ?>
+        <a href="register.php?logout=1">Выход</a>
+    <? }else{ ?>
+        <a href="login.php">Вход</a>
+        <a href="register.php">Регистриция</a>
+    <? } ?>
 </header>

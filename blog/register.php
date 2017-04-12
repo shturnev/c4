@@ -9,10 +9,12 @@ $E = new Enter();
     {
         try{
             $E->register($_POST);
+            echo "";
         }
         catch(Exception $e){
            $error_text = $e->getMessage();
         }
+
     }
 
     //Верификация
@@ -26,6 +28,13 @@ $E = new Enter();
         catch(Exception $e){
             $error_text = $e->getMessage();
         }
+    }
+
+    //Выход
+    if($_GET["logout"]){
+        $E->logout();
+        header("Location: index.php");
+        exit;
     }
 
 ?>
