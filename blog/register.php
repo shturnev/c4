@@ -26,7 +26,7 @@ if ($_POST["method_name"] == 'register')
             $error_text = $e->getMessage();
         }
     }
-?>
+?> 
 <!DOCTYPE html>
 <html lang="ru">
 <head>

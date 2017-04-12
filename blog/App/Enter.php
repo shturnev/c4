@@ -1,11 +1,5 @@
 <?php
 
-/**
- * Project c4.
- * User: pc_b
- * Date: 10.04.2017
- * Time: 18:56
- */
 class Enter
 {
 

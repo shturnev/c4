@@ -3,4 +3,4 @@
     <a href="">выход</a>
     <a href="register.php">регистрация</a>
 </header>
- 
+  
