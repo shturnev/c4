@@ -1,8 +1,7 @@
 <?
+
     if(!$E)
     {
-        require_once "classes/DB.php";
-        require_once "classes/Enter.php";
         $E = new Enter();
     }
 

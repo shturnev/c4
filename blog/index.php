@@ -1,6 +1,17 @@
+<?
+    require_once "blocks/autoload.php";
+
+    $U = new User();
+    $B = new Blog();
+
+    $admin = $U->is_admin($_COOKIE["user_id"]);
 
 
-
+    /*-----------------------------------
+    Соберём все записи
+    -----------------------------------*/
+    $blogItems = $B->get_few(["limit" => 5, "page" => $_GET["page"]]);
+?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -23,34 +34,48 @@
     <? require "blocks/header.php" ?>
 
     <section id="blog-list">
-        <div class="add-blog">
-            <a href="#">+</a>
-        </div>
+
+        <? require "blocks/plus_btn.php" ?>
+
         <ul >
-            <? for ($i = 0; $i < 10; $i++): ?>
+            <? foreach ($blogItems["items"] as $item):?>
 
                 <li>
-                <a href="blog_in.php" class="for-title">Lorem ipsum dolor.</a>
-                <div class="descr">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum iusto obcaecati
-                    omnis
-                    recusandae ullam! Consequatur delectus eum hic, laboriosam quaerat tempora vero voluptatum. Earum
-                    itaque
-                    nulla odio. Deserunt, ipsa sit.
+                <a href="blog_in.php?ID=<? echo $item["ID"] ?>" class="for-title"><? echo $item["title"] ?></a>
+                <div class="descr">
+                    <? echo $item["descr"] ?>
                 </div>
-                <div class="btns">
-                    <a href="#">Редактировать</a>
-                    <a href="#">Удалить</a>
-                </div>
+
+                <? if($admin){ ?>
+                    <div class="btns">
+                        <a href="blog_edit.php?ID=<? echo $item["ID"] ?>">Редактировать</a>
+                        <a data-js="delete" href="options.php?method_name=del_blog&ID=<? echo $item["ID"] ?>">Удалить</a>
+                    </div>
+                <? } ?>
             </li>
 
-            <? endfor; ?>
+            <? endforeach; ?>
+
+
+
 
         </ul>
+
+        <? if($blogItems["stack"]){ ?>
+        <div class="postrNav">
+            постраничная нав
+        </div>
+        <? } ?>
+
+
+        <div class="h100"></div>
+
     </section>
 </main>
 
 
-<script type="text/javascript" src=""></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="js/common.js"></script>
 </body>
 </html>
 

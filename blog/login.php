@@ -1,6 +1,6 @@
 <?
-require_once "classes/DB.php";
-require_once "classes/Enter.php";
+require_once "blocks/autoload.php";
+
 
 $E = new Enter();
 
