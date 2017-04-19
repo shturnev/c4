@@ -1,4 +1,6 @@
 <?php
+require_once 'clasess/ByteConverter.php';
+$C = new ByteConverter();
 if  ($_POST["method_name"] == "send_one" && $_FILES['photo']['tmp_name']){
     $aads = 1;
     if ($_FILES['photo']['error'])
@@ -18,6 +20,7 @@ if  ($_POST["method_name"] == "send_one" && $_FILES['photo']['tmp_name']){
 }
 
     ?>
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
