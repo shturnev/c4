@@ -10,5 +10,8 @@ $U2 = new \Smm\User();
 $U3 = new User();
 
 $U3->go();
+
 ?>
+
+
 
