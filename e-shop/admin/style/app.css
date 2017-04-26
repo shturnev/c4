@@ -1,0 +1,71 @@
+@charset "UTF-8";
+/*-----------------------------------
+Цвета
+-----------------------------------*/
+html, body {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  font-family: Verdana, Geneva, sans-serif;
+  height: 100%;
+  min-height: 100%; }
+
+main {
+  max-width: 960px;
+  margin: 0 auto; }
+  main > .crumps {
+    margin: 35px auto;
+    max-width: 960px;
+    padding: 0 15px;
+    box-sizing: border-box; }
+    main > .crumps a {
+      display: inline-block;
+      margin-right: 10px;
+      color: cornflowerblue; }
+      main > .crumps a:hover {
+        color: #3676e8; }
+      main > .crumps a i {
+        font-size: 46px; }
+  main > .add {
+    margin: 35px auto;
+    text-align: center; }
+    main > .add a {
+      color: darkgreen; }
+      main > .add a:hover {
+        color: #009700; }
+      main > .add a i {
+        font-size: 48px; }
+  main > .items {
+    list-style: none;
+    margin: 50px 0;
+    padding: 0; }
+    main > .items > li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 5px 15px;
+      box-sizing: border-box; }
+      main > .items > li:hover {
+        background: rgba(192, 192, 192, 0.3); }
+      main > .items > li > .col-1 img {
+        max-height: 60px;
+        vertical-align: middle; }
+      main > .items > li > .col-1 .edit {
+        font-size: 16px;
+        font-weight: bold;
+        color: #363636;
+        vertical-align: middle; }
+        main > .items > li > .col-1 .edit:hover {
+          color: #5c5c5c; }
+      main > .items > li > .col-2 a i {
+        font-size: 36px; }
+      main > .items > li > .col-2 a.delete {
+        color: darkred; }
+        main > .items > li > .col-2 a.delete:hover {
+          color: #be0000; }
+  main > .forForm {
+    max-width: 960px;
+    margin: 50px auto;
+    padding: 20px; }
+
+/*# sourceMappingURL=app.css.map */

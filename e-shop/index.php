@@ -1,7 +1,14 @@
 <?
 require_once "blocks/autoload.php";
-?>
 
+$U = new User();
+
+/*-----------------------------------
+Init
+-----------------------------------*/
+$Admin = $U->is_admin();
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -392,21 +399,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<!--//products-->
 			<!--brand-->
-			<div class="brand">
-				<div class="col-md-3 brand-grid">
-					<img src="images/ic.png" class="img-responsive" alt="">
-				</div>
-				<div class="col-md-3 brand-grid">
-					<img src="images/ic1.png" class="img-responsive" alt="">
-				</div>
-				<div class="col-md-3 brand-grid">
-					<img src="images/ic2.png" class="img-responsive" alt="">
-				</div>
-				<div class="col-md-3 brand-grid">
-					<img src="images/ic3.png" class="img-responsive" alt="">
-				</div>
-				<div class="clearfix"></div>
-			</div>
+                <? require "blocks/brand.php"?>
 			<!--//brand-->
 			</div>
 			

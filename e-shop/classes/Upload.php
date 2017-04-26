@@ -56,7 +56,6 @@ class Upload
 
     }
 
-
     public function check_img($input_name, $size = "3")
     {
         //1 ошибки
@@ -76,5 +75,6 @@ class Upload
         return $exp;
 
     }
+
 
 }
