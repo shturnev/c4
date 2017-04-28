@@ -63,3 +63,51 @@ if($_GET["method_name"] == "logout")
     exit();
 }
 
+
+//Удалить запись
+if($_GET["method_name"] == "delete_item" && is_numeric($_GET["ID"]) && $_GET["classname"]){
+    $O = new $_GET["classname"]();
+    $U = new User();
+
+    if(!$U->is_admin($_COOKIE["user_id"])){
+        exit("Не достаточно прав");
+    }
+
+    try{
+        $O->delete($_GET["ID"]);
+        header("Location: ".$_SERVER["HTTP_REFERER"]);
+    }
+    catch(Exception $e){
+        exit($e->getMessage());
+    }
+
+
+}
+
+
+//Сортировка
+if($_POST["method_name"] == "sortable")
+{
+    $U = new User();
+
+
+
+
+    if(!$U->is_admin($_COOKIE["user_id"])){
+        echo json_encode(["error" => "Не достаточно прав"]);
+        exit();
+    }
+
+
+
+    try{
+        Sort::sorting($_POST);
+        echo json_encode(["error" => null]);
+        exit;
+    }
+    catch(Exception $e){
+        echo json_encode(["error" => $e->getMessage()]);
+        exit();
+    }
+
+}

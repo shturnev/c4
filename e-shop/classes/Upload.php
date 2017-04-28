@@ -56,6 +56,14 @@ class Upload
 
     }
 
+
+    /**
+     * Проверка перед загрузкой файла (ошибка, тип, размер)
+     * @param $input_name - название поля формы
+     * @param string $size - допустимый размер файла в мб
+     * @return mixed - расширение файла, например jpg
+     * @throws Exception
+     */
     public function check_img($input_name, $size = "3")
     {
         //1 ошибки

@@ -64,6 +64,58 @@ class DB
 
     }
 
+
+    /**
+     * Вставить данные в таблицу
+     *
+     * @param $tableName
+     * @param $arrData - массив [0]["id"=>1,"sdsd" =>3],[1]["id"=>2,"sdsd" =>3]
+     * @return mixed - id вставленной строки
+     * @throws Exception
+     * @internal param $table - название таблицы
+     * @internal param $array - массив данных для вставки
+     */
+    public function multi_duplicate_update($tableName, $arrData)
+    {
+
+        $this->connect();
+
+
+        //Сначала формируем sql
+        foreach($arrData as $item)
+        {
+            $tmp_1 = "'".implode("','", $item)."'";
+            if(!isset($tmp_2)){ $tmp_2 = "(".$tmp_1.")"; }else{ $tmp_2 .= ",(".$tmp_1.")"; }
+        }
+
+        $keys = array_keys(array_shift($arrData));
+        $tmp_3 = [];
+        foreach ($keys as $key) {
+            $tmp_3[] =  $key."=VALUES(".$key.")";
+        }
+
+
+        $sql = "INSERT INTO ".$tableName." (".implode(",", $keys).") VALUES ".$tmp_2."
+                ON DUPLICATE KEY UPDATE ".implode(",",$tmp_3);
+
+
+
+        $resQuery = $this->resConnect->query($sql);
+        if(!$resQuery){
+            $this->disconnect();
+            throw new \Exception($this->resConnect->error);
+        }
+
+        $insert_id = $this->resConnect->insert_id;
+        $this->disconnect();
+
+        return $insert_id;
+
+    }
+
+
+
+
     public function update($table, $array, $where)
     {
 

@@ -14,6 +14,17 @@ referer
 -----------------------------------*/
 $referer = ($_POST["referer"])? $_POST["referer"] : $_SERVER["HTTP_REFERER"];
 
+//
+$method = (is_numeric($_GET["ID"]))? "edit" :  "add";
+
+/*-----------------------------------
+Соберем инфо про запись
+-----------------------------------*/
+if($method == "edit")
+{
+    $item_info = $B->get_one($_GET["ID"]);
+}
+
 
 /*-----------------------------------
 Отправка формы
@@ -21,17 +32,14 @@ $referer = ($_POST["referer"])? $_POST["referer"] : $_SERVER["HTTP_REFERER"];
 if($_POST["method_name"])
 {
 
-    switch ($_POST["method_name"]):
-        case "add":
-            try{
-                $B->add($_POST);
-            }
-            catch(Exception $e){
-                $error = $e->getMessage();
-            }
-        break;
+    try{
+        $B->$method($_POST);
+        header("Location: ".$referer); exit;
 
-    endswitch;
+    }
+    catch(Exception $e){
+        $error = $e->getMessage();
+    }
 
 }
 
@@ -68,13 +76,14 @@ if($_POST["method_name"])
 
     <div class="forForm">
         <form action="" method="post" enctype="multipart/form-data" name="myForm" target="_self">
-            <input type="hidden" name="method_name" value="add">
+            <input type="hidden" name="method_name" value="<? echo $method ?>">
             <input type="hidden" name="referer" value="<? echo $referer ?>">
+            <input type="hidden" name="ID" value="<? echo $item_info["ID"] ?>">
 
 
             <div>
                 <b>Название</b> <br>
-                <input type="text" name="name" value=""/>
+                <input type="text" name="name" value="<? echo $item_info["name"] ?>"/>
             </div>
 
             <br>
@@ -82,6 +91,10 @@ if($_POST["method_name"])
             <div>
                 <b>Лого</b> <br>
                 <input type="file" name="logo" />
+
+                <? if($item_info["logo"]){ ?>
+                    <img src="../FILES/brands/<? echo $item_info["logo"] ?>" align="right">
+                <? } ?>
             </div>
 
             <br>
