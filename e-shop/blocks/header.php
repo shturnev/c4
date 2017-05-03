@@ -11,6 +11,28 @@ $auth = $E->validate_coockie();
 
 
 <div class="header">
+
+    <? if($Admin){ ?>
+    <div class="admin-cont">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+
+                    <ul class="links">
+                        <li>
+                            <a href="/e-shop/admin/categories.php">Категории</a>
+                        </li>
+                        <li>
+                            <a href="/e-shop/admin/categories.php">Добавить товар</a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <? } ?>
+
     <div class="container">
         <div class="head">
             <div class=" logo">

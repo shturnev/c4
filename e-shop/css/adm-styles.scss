@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+.admin-cont{
+  padding: 10px 0;
+  background: #f67777;
+
+  ul.links{
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+
+    li{
+      margin-right: 10px;
+
+      a{
+        font-size: 15px;
+        font-weight: bold;
+        color: white;
+        font-family: Verdana, Geneva, sans-serif;
+
+        &:hover{
+          color: darken(white, 10%);
+        }
+      }
+    }
+  }
+}
+
+
