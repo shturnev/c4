@@ -23,7 +23,7 @@ $auth = $E->validate_coockie();
                             <a href="/e-shop/admin/categories.php">Категории</a>
                         </li>
                         <li>
-                            <a href="/e-shop/admin/categories.php">Добавить товар</a>
+                            <a href="/e-shop/admin/product_add_edit.php">Добавить товар</a>
                         </li>
                     </ul>
 

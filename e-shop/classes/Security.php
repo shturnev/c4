@@ -19,4 +19,14 @@ class Security
         return $string;
     }
 
+    public static function shield_2($string)
+    {
+        $string = trim($string);
+        $string = addslashes($string);
+//        $string = str_replace("onclick", 'on click')
+//        $string = strip_tags($string); // удаляет html код
+
+        return $string;
+    }
+
 }

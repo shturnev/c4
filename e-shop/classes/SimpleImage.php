@@ -941,7 +941,6 @@ class SimpleImage {
      */
     function text($text, $font_file, $font_size = 12, $color = '#000000', $position = 'center', $x_offset = 0, $y_offset = 0, $stroke_color = null, $stroke_size = null, $alignment = null, $letter_spacing = 0) {
 
-        // todo - this method could be improved to support the text angle
         $angle = 0;
 
         // Determine text color
