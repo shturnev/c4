@@ -25,6 +25,10 @@ $auth = $E->validate_coockie();
                         <li>
                             <a href="/e-shop/admin/product_add_edit.php">Добавить товар</a>
                         </li>
+                        <? if($tovar_id): ?><li><a href="/e-shop/admin/product_add_edit.php?ID=<? echo $tovar_id ?>">Редактировать товар</a> </li><? endif ?>
+
+
+
                     </ul>
 
                 </div>
@@ -36,7 +40,7 @@ $auth = $E->validate_coockie();
     <div class="container">
         <div class="head">
             <div class=" logo">
-                <a href="index.html"><img src="images/logo.png" alt=""></a>
+                <a href="index.php"><img src="images/logo.png" alt=""></a>
             </div>
         </div>
     </div>
@@ -88,7 +92,7 @@ $auth = $E->validate_coockie();
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
                         <ul class="nav navbar-nav nav_1">
-                            <li><a class="color" href="index.html">Home</a></li>
+                            <li><a class="color" href="index.php">Home</a></li>
 
                             <li class="dropdown mega-dropdown active">
                                 <a class="color1" href="#" class="dropdown-toggle" data-toggle="dropdown">Women<span class="caret"></span></a>

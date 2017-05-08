@@ -84,5 +84,25 @@ class Upload
 
     }
 
+    public function check_multi_img($input_name, $i, $size = "3")
+    {
+        //1 ошибки
+        Self::checkError($_FILES[$input_name]["error"][$i]);
+
+        //2 тип
+        $exp = Self::check_mime($_FILES[$input_name]["type"][$i], "image");
+
+        //3 размер
+        $B = new ByteConverter();
+        if($size < $B->getMBytes($_FILES[$input_name]["size"][$i]."b"))
+        {
+            throw new \Exception("Превышен размер файла");
+        }
+
+
+        return $exp;
+
+    }
+
 
 }

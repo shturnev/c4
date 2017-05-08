@@ -2,6 +2,7 @@
  * Created by sht_j on 05.05.2017.
  */
 
+
 $("[data-js='get_types']").on("change", function () {
     
     var href = "/e-shop/api.php",
@@ -32,3 +33,26 @@ $("[data-js='get_types']").on("change", function () {
     
     return false;
 });
+
+
+$("[data-js='del_photo']").on("click", function () {
+    
+    if(!confirm("Точно?")){ return false; }   
+    
+    var li = $(this).parent();
+    
+    
+    var href = $(this).attr("href");
+    $.get(href, function (d) {
+        var res = JSON.parse( d );
+        if(res.error){ alert(res.error); return false; }
+
+        $(li).remove();
+    });
+    
+
+    return false;
+});
+
+
+

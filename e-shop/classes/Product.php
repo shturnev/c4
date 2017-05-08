@@ -12,6 +12,7 @@ class Product
     public function __construct()
     {
         $this->DB = new DB();
+        $this->G  = new Gallery();
     }
 
     public function add($array)
@@ -56,7 +57,26 @@ class Product
 
         $res = $this->DB->insert("products", $arr);
 
+
+        //Поработаем над фото
+        $this->G->add(["table_name" => "products", "table_id" => $res]);
+
         return $res;
+    }
+
+    public function get_one($id)
+    {
+        if(!is_numeric($id)){
+            throw new \Exception("Не корректный id");}
+
+        //делаем выборку
+        $sql = "SELECT * FROM products WHERE ID = ".$id;
+        $resItem = $this->DB->get_row($sql);
+
+        //собирем фоточки
+        $resItem["photos"] = $this->G->get(["table_name" => "products", "table_id" => $id]);
+
+        return $resItem;
     }
 
 }

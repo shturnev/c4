@@ -25,7 +25,7 @@ $method = (is_numeric($_GET["ID"]))? "edit" :  "add";
 -----------------------------------*/
 if($method == "edit")
 {
-    $item_info = $B->get_one($_GET["ID"]);
+    $item_info = $P->get_one($_GET["ID"]);
 }
 
 /*-----------------------------------
@@ -180,7 +180,28 @@ if($_POST["method_name"])
             </div>
 
 
+            <br><br>
+            <hr>
+            <br>
+            <h4>Gallery</h4>
 
+            <? if($item_info["photos"]){ ?>
+            <ul class="gallery">
+                <? foreach ($item_info["photos"] as $item): ?>
+                    <li>
+                        <a href="../api.php?method_name=del_photo&ID=<? echo $item["ID"] ?>" data-js="del_photo">
+                            <span class="ph" style="background-image:url(/e-shop/FILES/gallery/small/<? echo $item["name"] ?>);"></span>
+                            <span class="icon"><i class="material-icons">&#xE14C;</i></span>
+                        </a>
+                    </li>
+                <? endforeach; ?>
+            </ul>
+            <? } ?>
+
+            <input type="file" name="photo[]" multiple>
+
+
+            <br>
             <br>
             <div><input name="submit" type="submit" value="готово"/></div>
         </form>
