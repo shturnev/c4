@@ -29,17 +29,17 @@ class Category
            throw new \Exception("Name - обязательное поле. Надо заполнить");
        }
 
-       /*if(!$_FILES["logo"]["tmp_name"])
+       if(!$_FILES["photo"]["tmp_name"])
        {
-           throw new \Exception("Логотип - обязательное поле");
+           throw new \Exception("Фото - обязательное поле");
        }
 
-       $filename = $this->add_logo("logo");*/
+       $filename = $this->add_logo("photo");
 
        //сохранить в базу
        $arr = [
-           "name" => $name,
-//           "logo" => $filename
+           "name"  => $name,
+           "photo" => $filename
        ];
 
        $resAdd = $this->DB->insert("categories", $arr);
@@ -70,28 +70,28 @@ class Category
             throw new \Exception("Такой записи не найдено");}
 
         //работа с  картинкой
-/*        if($_FILES["logo"]["tmp_name"])
+        if($_FILES["photo"]["tmp_name"])
         {
-            $filename = $this->add_logo("logo");
+            $filename = $this->add_logo("photo");
 
-            if(file_exists($this->output.$resItem["logo"]))
+            if(file_exists($this->output.$resItem["photo"]) && $resItem["photo"])
             {
-                unlink($this->output.$resItem["logo"]);
+                unlink($this->output.$resItem["photo"]);
             }
 
         }
         else
         {
-            $filename =  $resItem["logo"];
-        }*/
+            $filename =  $resItem["photo"];
+        }
 
 
 
 
        //сохранить в базу
        $arr = [
-           "name" => $name,
-//           "logo" => $filename
+           "name"  => $name,
+           "photo" => $filename
        ];
 
        $resDB = $this->DB->update("categories", $arr, "ID = ".$id);
@@ -173,7 +173,8 @@ class Category
         $img = new SimpleImage($_FILES[$input_name]["tmp_name"]);
         $filename = time().rand().".".$exp;
         $out_path = $this->output.$filename;
-        $img->best_fit(255, 132)->save($out_path);
+        Upload::check_dir($this->output); //создать елси необходимо папку
+        $img->best_fit(200, 240)->save($out_path);
 
         return $filename;
     }

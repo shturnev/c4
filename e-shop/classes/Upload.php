@@ -105,4 +105,14 @@ class Upload
     }
 
 
+    public static function check_dir($path)
+    {
+        if(is_dir($path)){ return true; }
+
+        $res = mkdir($path, 0777, true);
+
+        return $res;
+    }
+
+
 }

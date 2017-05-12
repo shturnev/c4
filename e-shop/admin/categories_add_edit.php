@@ -86,16 +86,17 @@ if($_POST["method_name"])
                 <input type="text" name="name" value="<? echo $item_info["name"] ?>"/>
             </div>
 
+
             <br>
 
-<!--            <div>
-                <b>Лого</b> <br>
-                <input type="file" name="logo" />
+            <div>
+                <b>Фото</b> <br>
+                <input type="file" name="photo" />
 
-                <?/* if($item_info["logo"]){ */?>
-                    <img src="../FILES/brands/<?/* echo $item_info["logo"] */?>" align="right">
-                <?/* } */?>
-            </div>-->
+                <? if($item_info["photo"]){ ?>
+                    <img src="../FILES/categories/<? echo $item_info["photo"] ?>" align="right">
+                <? } ?>
+            </div>
 
             <br>
             <div><input name="submit" type="submit" value="готово"/></div>

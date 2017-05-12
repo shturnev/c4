@@ -2,18 +2,36 @@
 require_once "blocks/autoload.php";
 
 $U = new User();
+$P = new Product();
+$C = new Category();
+$T = new Type();
+$B = new Brand();
+
+
 
 /*-----------------------------------
 Init
 -----------------------------------*/
 $Admin = $U->is_admin();
-$tovar_id = 3;
+$tovar_id = (is_numeric(@$_GET["ID"]))? $_GET["ID"] : 3;
+
+/*-----------------------------------
+инфо про эту запись
+-----------------------------------*/
+$resInfo = $P->get_one($tovar_id);
+
+/*-----------------------------------
+Категории + типы + бренды
+-----------------------------------*/
+$categories = $C->get_few(["limit" => 150, "page" => 0])["items"];
+$types      = $T->get_few(["cat_id" => $resInfo["cat_id"]])["items"];
+$brands     = $B->get_few(["limit" => 150, "page" => 0])["items"];
 
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Shopin A Ecommerce Category Flat Bootstrap Responsive Website Template | Single :: w3layouts</title>
+    <title>Shopin A Ecommerce Category Flat Bootstrap Responsive Website Template | <? echo $resInfo["meta_title"] ?></title>
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
     <!-- Custom Theme files -->
     <!--theme-style-->
@@ -21,8 +39,8 @@ $tovar_id = 3;
     <!--//theme-style-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="keywords" content="Shopin Responsive web template, Bootstrap Web Templates, Flat Web Templates, AndroId Compatible web template,
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <meta name="keywords" content="<? echo $resInfo["meta_key"] ?>" />
+    <meta name="description" content="<? echo $resInfo["meta_descr"] ?>" />
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
     <!--theme-style-->
     <link href="css/style4.css" rel="stylesheet" type="text/css" media="all" />
@@ -65,7 +83,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <div class="container">
         <h1>Single</h1>
         <em></em>
-        <h2><a href="index.php">Home</a><label>/</label>Single</a></h2>
+        <h2><a href="index.php">Home</a><label>/</label><? echo $resInfo["title"] ?></a></h2>
     </div>
 </div>
 <div class="single">
@@ -74,30 +92,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div class="col-md-9">
             <div class="col-md-5 grid">
                 <div class="flexslider">
+                    <? if($resInfo["photos"]): ?>
                     <ul class="slides">
-                        <li data-thumb="images/si.jpg">
-                            <div class="thumb-image"> <img src="images/si.jpg" data-imagezoom="true" class="img-responsive"> </div>
+                        <? foreach ($resInfo["photos"] as $item): ?>
+                        <li data-thumb="/e-shop/FILES/gallery/big/<? echo $item["name"] ?>">
+                            <div class="thumb-image"> <img src="/e-shop/FILES/gallery/small/<? echo $item["name"] ?>" data-imagezoom="true" class="img-responsive"> </div>
                         </li>
-                        <li data-thumb="images/si1.jpg">
-                            <div class="thumb-image"> <img src="images/si1.jpg" data-imagezoom="true" class="img-responsive"> </div>
-                        </li>
-                        <li data-thumb="images/si2.jpg">
-                            <div class="thumb-image"> <img src="images/si2.jpg" data-imagezoom="true" class="img-responsive"> </div>
-                        </li>
+                        <? endforeach; ?>
                     </ul>
+                    <? endif ?>
                 </div>
             </div>
             <div class="col-md-7 single-top-in">
                 <div class="span_2_of_a1 simpleCart_shelfItem">
-                    <h3>Nam liber tempor cum</h3>
+                    <h3><? echo $resInfo["title"] ?></h3>
                     <p class="in-para"> There are many variations of passages of Lorem Ipsum.</p>
                     <div class="price_single">
-                        <span class="reducedfrom item_price">$140.00</span>
+                        <span class="reducedfrom item_price">$<? echo $resInfo["price"] ?></span>
                         <a href="#">click for offer</a>
                         <div class="clearfix"></div>
                     </div>
                     <h4 class="quick">Quick Overview:</h4>
-                    <p class="quick_desc"> Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; es</p>
+                    <div class="quick_desc"><? echo $resInfo["descr_1"] ?></div>
                     <div class="wish-list">
                         <ul>
                             <li class="wish"><a href="#"><span class="glyphicon glyphicon-check" aria-hidden="true"></span>Add to Wishlist</a></li>
@@ -143,27 +159,27 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <div class="tab-content one">
                     <div class="tab-pane active text-style" id="tab1">
                         <div class="facts">
-                            <p > There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined </p>
-                            <ul>
-                                <li><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Research</li>
-                                <li><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Design and Development</li>
-                                <li><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Porting and Optimization</li>
-                                <li><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>System integration</li>
-                                <li><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Verification, Validation and Testing</li>
-                                <li><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Maintenance and Support</li>
-                            </ul>
+                            <? echo $resInfo["descr_2"] ?>
+<!--                            <ul>-->
+<!--                                <li><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Research</li>-->
+<!--                                <li><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Design and Development</li>-->
+<!--                                <li><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Porting and Optimization</li>-->
+<!--                                <li><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>System integration</li>-->
+<!--                                <li><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Verification, Validation and Testing</li>-->
+<!--                                <li><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Maintenance and Support</li>-->
+<!--                            </ul>-->
                         </div>
 
                     </div>
                     <div class="tab-pane text-style" id="tab2">
 
                         <div class="facts">
-                            <p > Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections </p>
-                            <ul >
-                                <li><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Multimedia Systems</li>
-                                <li><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Digital media adapters</li>
-                                <li><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Set top boxes for HDTV and IPTV Player  </li>
-                            </ul>
+                            <? echo $resInfo["descr_3"] ?>
+<!--                            <ul >-->
+<!--                                <li><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Multimedia Systems</li>-->
+<!--                                <li><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Digital media adapters</li>-->
+<!--                                <li><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Set top boxes for HDTV and IPTV Player  </li>-->
+<!--                            </ul>-->
                         </div>
 
                     </div>
@@ -198,21 +214,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </div>
 <!--brand-->
 <div class="container">
-    <div class="brand">
-        <div class="col-md-3 brand-grid">
-            <img src="images/ic.png" class="img-responsive" alt="">
-        </div>
-        <div class="col-md-3 brand-grid">
-            <img src="images/ic1.png" class="img-responsive" alt="">
-        </div>
-        <div class="col-md-3 brand-grid">
-            <img src="images/ic2.png" class="img-responsive" alt="">
-        </div>
-        <div class="col-md-3 brand-grid">
-            <img src="images/ic3.png" class="img-responsive" alt="">
-        </div>
-        <div class="clearfix"></div>
-    </div>
+    <? require "blocks/brand.php" ?>
 </div>
 <!--//brand-->
 </div>

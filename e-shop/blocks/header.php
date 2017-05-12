@@ -1,5 +1,4 @@
 <?
-
 if(!$E)
 {
     $E = new Enter();
@@ -7,9 +6,23 @@ if(!$E)
 
 $auth = $E->validate_coockie();
 
+/*-----------------------------------
+Собирем типы
+-----------------------------------*/
+$T = new Type();
+
+$MenTypes   = $T->get_few(["limit" => 15, "page" => 0, "cat_id" => 3])["items"];
+$WomenTypes = $T->get_few(["limit" => 15, "page" => 0, "cat_id" => 4])["items"];
+
+/*-----------------------------------
+Ифно про категории
+-----------------------------------*/
+if(!$C){ $C = new Category(); }
+$MainCategInfo["men"]   = $C->get_one(3);
+$MainCategInfo["women"] = $C->get_one(4);
+
+
 ?>
-
-
 <div class="header">
 
     <? if($Admin){ ?>
@@ -96,131 +109,54 @@ $auth = $E->validate_coockie();
 
                             <li class="dropdown mega-dropdown active">
                                 <a class="color1" href="#" class="dropdown-toggle" data-toggle="dropdown">Women<span class="caret"></span></a>
+                                <? if($WomenTypes): ?>
                                 <div class="dropdown-menu">
                                     <div class="menu-top">
                                         <div class="col1">
                                             <div class="h_nav">
-                                                <h4>Submenu1</h4>
+<!--                                                <h4>Submenu1</h4>-->
                                                 <ul>
-                                                    <li><a href="product.html">Accessories</a></li>
-                                                    <li><a href="product.html">Bags</a></li>
-                                                    <li><a href="product.html">Caps & Hats</a></li>
-                                                    <li><a href="product.html">Hoodies & Sweatshirts</a></li>
+                                                    <? foreach ($WomenTypes as $item): ?>
+                                                        <li><a href="product.php?bound_type=cat_id,type_id&bound_id=4,<? echo $item["ID"] ?>"><? echo $item["name"] ?></a></li>
+                                                    <? endforeach; ?>
+                                                </ul>
+                                            </div>
+                                        </div>
 
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="col1">
-                                            <div class="h_nav">
-                                                <h4>Submenu2</h4>
-                                                <ul>
-                                                    <li><a href="product.html">Jackets & Coats</a></li>
-                                                    <li><a href="product.html">Jeans</a></li>
-                                                    <li><a href="product.html">Jewellery</a></li>
-                                                    <li><a href="product.html">Jumpers & Cardigans</a></li>
-                                                    <li><a href="product.html">Leather Jackets</a></li>
-                                                    <li><a href="product.html">Long Sleeve T-Shirts</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="col1">
-                                            <div class="h_nav">
-                                                <h4>Submenu3</h4>
-                                                <ul>
-                                                    <li><a href="product.html">Shirts</a></li>
-                                                    <li><a href="product.html">Shoes, Boots & Trainers</a></li>
-                                                    <li><a href="product.html">Sunglasses</a></li>
-                                                    <li><a href="product.html">Sweatpants</a></li>
-                                                    <li><a href="product.html">Swimwear</a></li>
-                                                    <li><a href="product.html">Trousers & Chinos</a></li>
-
-                                                </ul>
-
-                                            </div>
-                                        </div>
-                                        <div class="col1">
-                                            <div class="h_nav">
-                                                <h4>Submenu4</h4>
-                                                <ul>
-                                                    <li><a href="product.html">T-Shirts</a></li>
-                                                    <li><a href="product.html">Underwear & Socks</a></li>
-                                                    <li><a href="product.html">Vests</a></li>
-                                                    <li><a href="product.html">Jackets & Coats</a></li>
-                                                    <li><a href="product.html">Jeans</a></li>
-                                                    <li><a href="product.html">Jewellery</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
+                                        <? if($MainCategInfo["women"]["photo"]): ?>
                                         <div class="col1 col5">
-                                            <img src="images/me.png" class="img-responsive" alt="">
+                                            <img src="/e-shop/FILES/categories/<? echo $MainCategInfo["women"]["photo"] ?>" class="img-responsive" alt="">
                                         </div>
+                                        <? endif; ?>
                                         <div class="clearfix"></div>
                                     </div>
                                 </div>
+                                <? endif ?>
                             </li>
                             <li class="dropdown mega-dropdown active">
                                 <a class="color2" href="#" class="dropdown-toggle" data-toggle="dropdown">Men<span class="caret"></span></a>
                                 <div class="dropdown-menu mega-dropdown-menu">
+                                    <? if($MenTypes): ?>
                                     <div class="menu-top">
                                         <div class="col1">
                                             <div class="h_nav">
-                                                <h4>Submenu1</h4>
-                                                <ul>
-                                                    <li><a href="product.html">Accessories</a></li>
-                                                    <li><a href="product.html">Bags</a></li>
-                                                    <li><a href="product.html">Caps & Hats</a></li>
-                                                    <li><a href="product.html">Hoodies & Sweatshirts</a></li>
 
+                                                <ul>
+                                                    <? foreach ($MenTypes as $item): ?>
+                                                        <li><a href="product.php?bound_type=cat_id,type_id&bound_id=3,<? echo $item["ID"] ?>"><? echo $item["name"] ?></a></li>
+                                                    <? endforeach; ?>
                                                 </ul>
                                             </div>
                                         </div>
-                                        <div class="col1">
-                                            <div class="h_nav">
-                                                <h4>Submenu2</h4>
-                                                <ul>
-                                                    <li><a href="product.html">Jackets & Coats</a></li>
-                                                    <li><a href="product.html">Jeans</a></li>
-                                                    <li><a href="product.html">Jewellery</a></li>
-                                                    <li><a href="product.html">Jumpers & Cardigans</a></li>
-                                                    <li><a href="product.html">Leather Jackets</a></li>
-                                                    <li><a href="product.html">Long Sleeve T-Shirts</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="col1">
-                                            <div class="h_nav">
-                                                <h4>Submenu3</h4>
 
-                                                <ul>
-                                                    <li><a href="product.html">Shirts</a></li>
-                                                    <li><a href="product.html">Shoes, Boots & Trainers</a></li>
-                                                    <li><a href="product.html">Sunglasses</a></li>
-                                                    <li><a href="product.html">Sweatpants</a></li>
-                                                    <li><a href="product.html">Swimwear</a></li>
-                                                    <li><a href="product.html">Trousers & Chinos</a></li>
-
-                                                </ul>
-
+                                        <? if($MainCategInfo["men"]["photo"]): ?>
+                                            <div class="col1 col5">
+                                                <img src="/e-shop/FILES/categories/<? echo $MainCategInfo["men"]["photo"] ?>" class="img-responsive" alt="">
                                             </div>
-                                        </div>
-                                        <div class="col1">
-                                            <div class="h_nav">
-                                                <h4>Submenu4</h4>
-                                                <ul>
-                                                    <li><a href="product.html">T-Shirts</a></li>
-                                                    <li><a href="product.html">Underwear & Socks</a></li>
-                                                    <li><a href="product.html">Vests</a></li>
-                                                    <li><a href="product.html">Jackets & Coats</a></li>
-                                                    <li><a href="product.html">Jeans</a></li>
-                                                    <li><a href="product.html">Jewellery</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="col1 col5">
-                                            <img src="images/me1.png" class="img-responsive" alt="">
-                                        </div>
+                                        <? endif ?>
                                         <div class="clearfix"></div>
                                     </div>
+                                    <? endif; ?>
                                 </div>
                             </li>
                             <li><a class="color3" href="product.html">Sale</a></li>

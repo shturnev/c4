@@ -2,6 +2,12 @@
 if(!$C){ $C = new Category(); }
 $CatList = $C->get_few(["limit" => 15, "page" => 0])["items"];
 
+if(!$T){ $T = new Type(); }
+if(!$types){ $types = $T->get_few(["cat_id" => $CatList[0]["ID"]])["items"];  }
+
+if(!$B){ $B = new Brand(); }
+if(!$brands){ $brands = $B->get_few(["limit" => 150, "page" => 0])["items"];  }
+
 ?>
 
 <!--categories-->
@@ -61,37 +67,36 @@ $CatList = $C->get_few(["limit" => 15, "page" => 0])["items"];
 
 
 <!---->
+<? if($types): ?>
 <section  class="sky-form">
     <h4 class="cate">Type</h4>
     <div class="row row1 scroll-pane">
-        <div class="col col-4">
+        <!--<div class="col col-4">
             <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i></i>Sofa Cum Beds (30)</label>
-        </div>
+        </div>-->
         <div class="col col-4">
-            <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Bags  (30)</label>
-            <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Caps & Hats (30)</label>
-            <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Jackets & Coats   (30)</label>
-            <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Jeans  (30)</label>
-            <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Shirts   (30)</label>
-            <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Sunglasses  (30)</label>
-            <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Swimwear  (30)</label>
+            <? foreach ($types as $item):
+                 $checked = ($item["ID"] == $resInfo["type_id"])? "checked" : null;
+                ?>
+                <label class="checkbox"><input type="checkbox" name="checkbox" <? echo $checked ?>><i></i><? echo $item["name"] ?> </label>
+            <? endforeach; ?>
         </div>
     </div>
 </section>
-<section  class="sky-form">
-    <h4 class="cate">Brand</h4>
-    <div class="row row1 scroll-pane">
-        <div class="col col-4">
-            <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i></i>Roadstar</label>
+<? endif; ?>
+
+<? if($brands): ?>
+    <section  class="sky-form">
+        <h4 class="cate">Brand</h4>
+        <div class="row row1 scroll-pane">
+
+            <div class="col col-4">
+                <? foreach ($brands as $item):
+                    $checked = ($item["ID"] == $resInfo["brand_id"])? "checked" : null;
+                    ?>
+                    <label class="checkbox"><input type="checkbox" name="checkbox" <? echo $checked ?>><i></i><? echo $item["name"] ?></label>
+                <? endforeach; ?>
+            </div>
         </div>
-        <div class="col col-4">
-            <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Levis</label>
-            <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Persol</label>
-            <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Nike</label>
-            <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Edwin</label>
-            <label class="checkbox"><input type="checkbox" name="checkbox" ><i></i>New Balance</label>
-            <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Paul Smith</label>
-            <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Ray-Ban</label>
-        </div>
-    </div>
-</section>
+    </section>
+<? endif; ?>
