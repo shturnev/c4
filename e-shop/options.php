@@ -111,3 +111,52 @@ if($_POST["method_name"] == "sortable")
     }
 
 }
+
+
+//Добавить в корзину
+if($_GET["method_name"] == "add_to_basket" && is_numeric($_GET["ID"])){
+    $O = new Basket();
+
+
+    try{
+        $O->add(["product_id" => $_GET["ID"], "units" => $_GET["units"]]);
+        header("Location: ".$_SERVER["HTTP_REFERER"]);
+    }
+    catch(Exception $e){
+        exit($e->getMessage());
+    }
+
+
+}
+
+//Удалить из корзины
+if($_GET["method_name"] == "delete_from_basket" && is_numeric($_GET["ID"])){
+
+    $O = new Basket();
+
+
+    try{
+        $O->delete($_GET["ID"]);
+
+        if($_SERVER['HTTP_X_REQUESTED_WITH']!='XMLHttpRequest') {
+            header("Location: ".$_SERVER["HTTP_REFERER"]);
+        }
+        else
+        {
+            print_r(json_encode(["response" => "ok"])); exit();
+        }
+
+    }
+    catch(Exception $e){
+
+        if($_SERVER['HTTP_X_REQUESTED_WITH']!='XMLHttpRequest') {
+            exit($e->getMessage());
+        }
+        else
+        {
+            print_r(json_encode(["error" => $e->getMessage()])); exit();
+        }
+    }
+
+
+}

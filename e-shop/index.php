@@ -14,8 +14,6 @@ $Admin = $U->is_admin();
 Собирем товары
 -----------------------------------*/
 $products = $P->get_few(["limit" => 8, "page" => 0, "order_by_col" => "ID", "order_by_type" => "DESC"])["items"];
-
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -173,7 +171,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                 <h6><a href="single.php?ID=<? echo $item["ID"] ?>"><? echo $item["title"] ?></a></h6>
                                             </div>
                                             <div class="img item_add">
-                                                <a href="#"><img src="images/ca.png" alt=""></a>
+                                                <? $basket_url = (!$auth)? "login.php" : "options.php?method_name=add_to_basket&ID=".$item["ID"]    ?>
+                                                <a href="<? echo $basket_url ?>"><img src="images/ca.png" alt=""></a>
                                             </div>
                                             <div class="clearfix"></div>
                                         </div>
