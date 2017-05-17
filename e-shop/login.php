@@ -137,9 +137,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<h6>Information</h6>
 						<ul class=" in">
 							<li><a href="404.html">About</a></li>
-							<li><a href="contact.html">Contact Us</a></li>
+							<li><a href="contact.php">Contact Us</a></li>
 							<li><a href="#">Returns</a></li>
-							<li><a href="contact.html">Site Map</a></li>
+							<li><a href="contact.php">Site Map</a></li>
 						</ul>
 						<ul class="in in1">
 							<li><a href="#">Order History</a></li>

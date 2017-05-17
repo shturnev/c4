@@ -9,6 +9,11 @@
 class Security
 {
 
+    /**
+     * Полный экран
+     * @param $string
+     * @return string
+     */
     public static function shield_1($string)
     {
         $string = trim($string);
@@ -19,6 +24,12 @@ class Security
         return $string;
     }
 
+
+    /**
+     * Оставим html
+     * @param $string
+     * @return string
+     */
     public static function shield_2($string)
     {
         $string = trim($string);

@@ -33,6 +33,9 @@ $MainCategInfo["women"] = $C->get_one(4);
 
                     <ul class="links">
                         <li>
+                            <a href="/e-shop/admin/page_settings_edit.php?stranica=<? echo STRANICA ?>">Ред-ть страницу</a>
+                        </li>
+                        <li>
                             <a href="/e-shop/admin/categories.php">Категории</a>
                         </li>
                         <li>
