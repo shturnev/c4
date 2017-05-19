@@ -41,6 +41,9 @@ $MainCategInfo["women"] = $C->get_one(4);
                         <li>
                             <a href="/e-shop/admin/product_add_edit.php">Добавить товар</a>
                         </li>
+                        <li>
+                            <a href="/e-shop/admin/messages.php"><i class="material-icons">mail_outline</i></a>
+                        </li>
                         <? if($tovar_id): ?><li><a href="/e-shop/admin/product_add_edit.php?ID=<? echo $tovar_id ?>">Редактировать товар</a> </li><? endif ?>
 
 
@@ -165,7 +168,7 @@ $MainCategInfo["women"] = $C->get_one(4);
                             <li><a class="color3" href="product.html">Sale</a></li>
                             <li><a class="color4" href="404.html">About</a></li>
                             <li><a class="color5" href="typo.html">Short Codes</a></li>
-                            <li ><a class="color6" href="contact.html">Contact</a></li>
+                            <li ><a class="color6" href="contact.php">Contact</a></li>
                         </ul>
                     </div><!-- /.navbar-collapse -->
 

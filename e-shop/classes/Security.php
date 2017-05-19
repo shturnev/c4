@@ -40,4 +40,24 @@ class Security
         return $string;
     }
 
+
+    /**
+     * Полный экран + добавим переносы на новую строку
+     * @param $string
+     * @return string
+     */
+    public static function shield_3($string)
+    {
+        $string = trim($string);
+        $string = str_replace("<br>", "\n", $string);
+        $string = htmlspecialchars($string);
+        $string = str_replace("\n", "<br>", $string);
+//        $string = str_replace("onclick", 'on click')
+//        $string = strip_tags($string); // удаляет html код
+
+        return $string;
+    }
+
+
+
 }

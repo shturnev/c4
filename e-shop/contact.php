@@ -6,6 +6,7 @@ define("STRANICA", "contact"); //stranica
 
 $U = new User();
 $PS = new PageSetting();
+$Msg = new Message();
 
 /*-----------------------------------
 Init
@@ -17,6 +18,20 @@ $Admin = $U->is_admin();
 Ифно про эту страницу
 -----------------------------------*/
 $page_info = $PS->get(["method" => 1, "stranica" => STRANICA]);
+
+
+/*-----------------------------------
+Если была отправленна форма
+-----------------------------------*/
+if($_POST["method_name"] == "send_message")
+{
+    try{
+        $Msg->add($_POST);
+    }
+    catch(Exception $e){
+        exit($e->getMessage());
+    }
+}
 
 
 ?>
@@ -70,6 +85,8 @@ $page_info = $PS->get(["method" => 1, "stranica" => STRANICA]);
         });
     </script>
     <!---//End-rate---->
+
+    <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 <body>
 <!--header-->
@@ -133,23 +150,30 @@ $page_info = $PS->get(["method" => 1, "stranica" => STRANICA]);
             </div>
             <div class="col-md-6 contact-top">
                 <h3>Want to work with me?</h3>
-                <form>
+                <form action="" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="method_name" value="send_message">
+
+
                     <div>
                         <span>Your Name </span>
-                        <input type="text" value="">
+                        <input name="name" type="text" value="">
                     </div>
                     <div>
                         <span>Your Email </span>
-                        <input type="text" value="">
+                        <input name="email" type="text" value="">
                     </div>
                     <div>
                         <span>Subject</span>
-                        <input type="text" value="">
+                        <input name="subject"  type="text" value="">
                     </div>
                     <div>
                         <span>Your Message</span>
-                        <textarea> </textarea>
+                        <textarea name="text"> </textarea>
                     </div>
+
+                    <div class="g-recaptcha" data-sitekey="6LcFKCIUAAAAAJtrfy9H_QNLDhCjpFoeOT2qDtWO"></div>
+                    <br><br>
+
                     <label class="hvr-skew-backward">
                         <input type="submit" value="Send">
                     </label>
